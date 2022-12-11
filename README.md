@@ -33,6 +33,10 @@ Each class in the list below has one or more unimplemented methods you will need
 This is the core of the project: the application as it stands currently has no logging or metric aggregation. It is your job to implement SLF4j and Logback to capture relevant events and their associated data in real time. You will also need to create a script OUTSIDE of the project to aggregate the data to measure your SLIs and achieve MVP requirements. 
 
 ### Service Level Objects
+<!-- (x * 100) / total = percentage-->
+<!-- (# of Success Requets / 100) / Total Requests = must be 99.8% -->
+<!-- (Total Requests * 0.2) / 100 <= # Failed Requests -->
+<!-- total response time / total response = avg must be <= 200 milliseconds -->
 - 99.8% of requests should complete successfully within 200 milliseconds
 
 ### Service Level Indicators

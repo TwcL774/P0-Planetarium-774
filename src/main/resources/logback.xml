@@ -1,0 +1,43 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- configure a rolling class -->
+    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        
+        <!-- creates a log file called activityLogs-->
+        <file>logs/activityLogs.log</file>
+        <!-- write to file instead of overwriting-->
+        <append>true</append>
+
+        <!-- policy to creating new files -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <!-- filename pattern for the log files -->
+            <fileNamePattern>activityLogs.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- log files age -->
+            <maxHistory>1</maxHistory>
+            <!-- log files maximum size -->
+            <totalSizeCap>3GB</totalSizeCap>
+        
+        </rollingPolicy>
+
+        <encoder>
+            <!-- <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern> -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+
+    </appender>
+
+    <!-- logs level -->
+    <root level="INFO">
+        <!-- reference for the type of logging -->
+        <appender-ref ref="ROLLING"/>
+        <!-- <appender-ref ref="STDOUT"/> -->
+    </root>
+
+</configuration>
