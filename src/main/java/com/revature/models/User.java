@@ -1,9 +1,5 @@
 package com.revature.models;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,4 +10,11 @@ public class User {
 	private int id;
 	private String username;
 	private String password;
+
+	// created a constructor to simplify code in UserDao.java
+	public User(int id, String username, String password) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}	
 }

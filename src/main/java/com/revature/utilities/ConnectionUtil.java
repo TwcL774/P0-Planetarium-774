@@ -1,7 +1,6 @@
 package com.revature.utilities;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,10 +9,11 @@ import java.util.Properties;
 
 public class ConnectionUtil {
     
-    public static Connection createConnection(){
+    public static Connection createConnection() {
         try {
             Properties prop = new Properties();
             prop.load(new FileInputStream("src/main/resources/db-properties.properties"));
+
             return DriverManager.getConnection(
                 prop.getProperty("URL"), 
                 prop.getProperty("USERNAME"), 

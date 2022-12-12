@@ -1,6 +1,6 @@
 -- Use this script to setup your Planetarium database
-
 create table users(
+	-- serial starts at 1 and auto generates
 	id serial primary key,
 	username varchar(20) unique,
 	password varchar(20)

@@ -3,7 +3,6 @@ package com.revature.controller;
 import java.util.List;
 
 import com.revature.models.Moon;
-import com.revature.models.Planet;
 import com.revature.models.User;
 import com.revature.service.MoonService;
 
