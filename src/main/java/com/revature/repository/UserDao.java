@@ -28,7 +28,7 @@ public class UserDao {
                             rs.getString("password"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return new User();
+            return null;
         }
     }
 
@@ -50,7 +50,7 @@ public class UserDao {
                             rs.getString("password"));            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return new User();
+            return null;
         }
     }
 }
