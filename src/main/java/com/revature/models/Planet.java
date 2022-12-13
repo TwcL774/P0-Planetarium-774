@@ -11,7 +11,7 @@ public class Planet {
 	private String name;
 	private int ownerId;
 
-	// created a constructor to simplify PlanetDao.java
+	// created a constructor to simplify code in PlanetDao.java
 	public Planet(int id, String name, int ownerId) {
 		this.id = id;
 		this.name = name;

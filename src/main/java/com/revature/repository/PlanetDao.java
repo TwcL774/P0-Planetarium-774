@@ -13,24 +13,21 @@ import com.revature.utilities.ConnectionUtil;
 
 public class PlanetDao {
     
-    public List<Planet> getAllPlanets() {
+    public List<Planet> getAllPlanets() throws SQLException {
 		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionUtil.createConnection()) {
-			List<Planet> Planet = new ArrayList<>();
+			List<Planet> planet = new ArrayList<>();
 			String sql = "select * from planets";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
+			Statement ps = conn.createStatement();
+			ResultSet rs = ps.executeQuery(sql);
 
 			while (rs.next()) {
-				Planet.add(new Planet(rs.getInt("id"),
+				planet.add(new Planet(rs.getInt("id"),
 										rs.getString("name"),
 										rs.getInt("ownerid")));
 			}
 
-			return Planet;
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-			return null;
+			return planet;
 		}
 	}
 
@@ -116,8 +113,8 @@ public class PlanetDao {
 		try (Connection conn = ConnectionUtil.createConnection()) {
 			String sql = "delete * from planets where id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
-
-			ps.execute();
+			int rowsAffected = ps.executeUpdate();			
+			System.out.println("Affected Rows: " + rowsAffected);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
