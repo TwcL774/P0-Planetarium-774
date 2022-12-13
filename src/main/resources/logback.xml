@@ -28,7 +28,7 @@
 
         <encoder>
             <!-- <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern> -->
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd} - %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
 
     </appender>
@@ -37,7 +37,7 @@
     <root level="INFO">
         <!-- reference for the type of logging -->
         <appender-ref ref="ROLLING"/>
-        <!-- <appender-ref ref="STDOUT"/> -->
+        <appender-ref ref="STDOUT"/>
     </root>
 
 </configuration>

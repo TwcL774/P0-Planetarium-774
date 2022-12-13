@@ -1,3 +1,7 @@
+-- DROP TABLE IF EXISTS moons;
+-- DROP TABLE IF EXISTS planets;
+-- DROP TABLE IF EXISTS users;
+
 -- Use this script to setup your Planetarium database
 create table users(
 	-- serial starts at 1 and auto generates
@@ -17,3 +21,5 @@ create table moons(
 	name varchar(20),
 	myPlanetId int references planets(id) on delete cascade
 );
+
+-- insert into	users values (default, 'test', 'test');

@@ -13,7 +13,7 @@ import com.revature.utilities.ConnectionUtil;
 
 public class MoonDao {
     
-    public List<Moon> getAllMoons() {
+    public List<Moon> getAllMoons() throws SQLException {
 		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionUtil.createConnection()) {
 			List<Moon> moon = new ArrayList<>();
@@ -23,38 +23,125 @@ public class MoonDao {
 
 			while (rs.next()) {
 				moon.add(new Moon(rs.getInt("id"),
-										rs.getString("name"),
-										rs.getInt("myplanetid")));
+									rs.getString("name"),
+									rs.getInt("myplanetid")));
 			}
 
 			return moon;
+		}
+	}
+
+	public Moon getMoonByName(String username, String moonName) {
+		// TODO Auto-generated method stub
+		try (Connection conn = ConnectionUtil.createConnection()) {
+			String sql = "select * from moons where name = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setString(1, moonName);
+
+			ResultSet rs = ps.executeQuery();
+
+			// called for the 1st pass in the do-while loop
+			rs.next();
+
+			// do-while loop in case there's a duplicate moon
+			do {
+				return new Moon(rs.getInt("id"),
+									rs.getString("name"),
+									rs.getInt("myplanetid"));
+			} while(rs.next());
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return null;
 		}
 	}
 
-	public Moon getMoonByName(String username, String moonName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Moon getMoonById(String username, int moonId) {
 		// TODO Auto-generated method stub
-		return null;
+		try (Connection conn = ConnectionUtil.createConnection()) {
+			String sql = "select * from moons where id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, moonId);
+
+			ResultSet rs = ps.executeQuery();
+
+			rs.next();
+			return new Moon(rs.getInt("id"),
+								rs.getString("name"),
+								rs.getInt("myplanetid"));
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
 	}
 
 	public Moon createMoon(String username, Moon m) {
 		// TODO Auto-generated method stub
-		return null;
+		try (Connection conn = ConnectionUtil.createConnection()) {
+			String sql = "insert into moons values (default, ?, ?)";
+			PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			ps.setString(1, m.getName());
+			ps.setInt(2, m.getMyPlanetId());
+			ps.execute();
+			
+			ResultSet rs = ps.getGeneratedKeys();
+
+			rs.next();
+
+			return new Moon(rs.getInt("id"),
+							rs.getString("name"),
+							rs.getInt("myplanetid"));
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
 	}
 
 	public void deleteMoonById(int moonId) {
 		// TODO Auto-generated method stub
+		try (Connection conn = ConnectionUtil.createConnection()) {
+			String sql = "delete from moons where id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, moonId);
+			int rowsAffected = ps.executeUpdate();			
+			System.out.println("Affected Rows: " + rowsAffected);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
-	public List<Moon> getMoonsFromPlanet(int planetId) {
+	public List<Moon> getMoonsFromPlanet(int planetId) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		try (Connection conn = ConnectionUtil.createConnection()) {
+			List<Moon> moon = new ArrayList<>();
+			String sql = "select * from moons where myplanetid = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, planetId);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				moon.add(new Moon(rs.getInt("id"),
+									rs.getString("name"),
+									rs.getInt("myplanetid")));
+			}
+
+			return moon;
+		}
 	}
+
+	// public static void main(String[] args) throws SQLException {
+	// 	MoonDao mDao = new MoonDao();
+	// 	System.out.println(mDao.createMoon("test", new Moon(0, "Moon 1", 1)) + " Moon 1 is added to the DB");
+	// 	System.out.println(mDao.createMoon("test", new Moon(0, "Moon 2", 2)) + " Moon 2 is added to the DB");
+	// 	System.out.println(mDao.createMoon("test", new Moon(0, "Moon 3", 1)) + " Moon 3 is added to the DB");
+	// 	System.out.println(mDao.getMoonByName("test", "Moon 1") + " Moon: Moon 1 is retrieved by name");
+	// 	System.out.println(mDao.getMoonById("test", 2) + " Moon: Moon 2 is retrieved by id");
+	// 	System.out.println(mDao.getAllMoons() + " All moons were retrieved");
+	// 	System.out.println(mDao.getMoonsFromPlanet(1) + " All moons from Planet 1 retrieved");
+	// 	mDao.deleteMoonById(3);
+	// }
 }

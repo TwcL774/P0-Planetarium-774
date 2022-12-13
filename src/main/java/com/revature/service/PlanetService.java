@@ -29,8 +29,7 @@ public class PlanetService {
 	}
 
 	public Planet createPlanet(String username, Planet p) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.dao.createPlanet(username, p);
 	}
 
 	public void deletePlanetById(int planetId) {
