@@ -14,7 +14,6 @@ import com.revature.utilities.ConnectionUtil;
 public class PlanetDao {
     
     public List<Planet> getAllPlanets() throws SQLException {
-		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionUtil.createConnection()) {
 			List<Planet> planet = new ArrayList<>();
 			String sql = "select * from planets";
@@ -32,7 +31,6 @@ public class PlanetDao {
 	}
 
 	public Planet getPlanetByName(String owner, String planetName) {
-		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionUtil.createConnection()) {
 			String sql = "select * from planets where name = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -57,7 +55,6 @@ public class PlanetDao {
 	}
 
 	public Planet getPlanetById(String username, int planetId) {
-		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionUtil.createConnection()) {
 			String sql = "select * from planets where id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -77,7 +74,6 @@ public class PlanetDao {
 	}
 
 	public Planet createPlanet(String username, Planet p) {
-		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionUtil.createConnection()) {
 			String sql = "insert into planets values (default, ?, ?)";
 			PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -100,7 +96,6 @@ public class PlanetDao {
 	}
 
 	public void deletePlanetById(int planetId) {
-		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionUtil.createConnection()) {
 			String sql = "delete from planets where id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
