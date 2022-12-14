@@ -54,6 +54,7 @@ public class UserDao {
         }
     }
 
+    // to test method implementations
     // public static void main(String[] args) {
     //     UserDao uDao = new UserDao();
     //     UsernamePasswordAuthentication newUser = new UsernamePasswordAuthentication();

@@ -5,8 +5,7 @@ import com.revature.models.UsernamePasswordAuthentication;
 import com.revature.repository.UserDao;
 
 /**
- * This class is used as abstraction to hide the implementation
- * details, that accessess the database to for user information.
+ * 
  */
 public class UserService {
 

@@ -10,44 +10,36 @@ public class PlanetController {
 	
 	private PlanetService pService = new PlanetService();
 
-	public void getAllPlanets(Context ctx) {
-		
+	public void getAllPlanets(Context ctx) {		
 		ctx.json(pService.getAllPlanets()).status(200);
 	}
 
-	public void getPlanetByName(Context ctx) {
-		
+	public void getPlanetByName(Context ctx) {		
 		User u = ctx.sessionAttribute("user");
-		String planetName = ctx.pathParam("name");
-		
+		String planetName = ctx.pathParam("name");		
 		Planet p = pService.getPlanetByName(u.getUsername(), planetName);
 		
 		ctx.json(p).status(200);
 	}
 
-	public void getPlanetByID(Context ctx) {
-		
+	public void getPlanetByID(Context ctx) {		
 		User u = ctx.sessionAttribute("user");
-		int planetId = ctx.pathParamAsClass("id", Integer.class).get();
-		
+		int planetId = ctx.pathParamAsClass("id", Integer.class).get();		
 		Planet p = pService.getPlanetById(u.getUsername(), planetId);
 		
 		ctx.json(p).status(200);
 	}
 
 
-	public void createPlanet(Context ctx) {
-		
+	public void createPlanet(Context ctx) {		
 		Planet planetToBeCreated = ctx.bodyAsClass(Planet.class);
-		User u = ctx.sessionAttribute("user");
-		
+		User u = ctx.sessionAttribute("user");		
 		Planet createdPlanet = pService.createPlanet(u.getUsername(),planetToBeCreated);
 		
 		ctx.json(createdPlanet).status(201);
 	}
 
-	public void deletePlanet(Context ctx) {
-		
+	public void deletePlanet(Context ctx) {		
 		int planetId = ctx.pathParamAsClass("id", Integer.class).get();
 		
 		pService.deletePlanetById(planetId);

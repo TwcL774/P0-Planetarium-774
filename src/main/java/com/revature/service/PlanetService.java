@@ -7,8 +7,7 @@ import com.revature.models.Planet;
 import com.revature.repository.PlanetDao;
 
 /**
- * This class is used as abstraction to hide the implementation
- * details, that accesses the database for Planet information.
+ * 
  */
 public class PlanetService {
 

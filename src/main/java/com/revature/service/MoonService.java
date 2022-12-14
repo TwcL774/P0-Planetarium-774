@@ -7,8 +7,7 @@ import com.revature.models.Moon;
 import com.revature.repository.MoonDao;
 
 /**
- * This class is used as abstraction to hide the implementation
- * details, that accesses the database for Moon information.
+ * 
  */
 public class MoonService {
 

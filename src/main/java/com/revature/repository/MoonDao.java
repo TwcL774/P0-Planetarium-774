@@ -39,15 +39,10 @@ public class MoonDao {
 
 			ResultSet rs = ps.executeQuery();
 
-			// called for the 1st pass in the do-while loop
 			rs.next();
-
-			// do-while loop in case there's a duplicate moon
-			do {
-				return new Moon(rs.getInt("id"),
-									rs.getString("name"),
-									rs.getInt("myplanetid"));
-			} while(rs.next());
+			return new Moon(rs.getInt("id"),
+							rs.getString("name"),
+							rs.getInt("myplanetid"));
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return null;
@@ -127,6 +122,7 @@ public class MoonDao {
 		}
 	}
 
+    // to test method implementations
 	// public static void main(String[] args) throws SQLException {
 	// 	MoonDao mDao = new MoonDao();
 	// 	System.out.println(mDao.createMoon("test", new Moon(0, "Moon 1", 1)) + " Moon 1 is added to the DB");

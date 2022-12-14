@@ -1,6 +1,4 @@
--- DROP TABLE IF EXISTS moons;
--- DROP TABLE IF EXISTS planets;
--- DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS moons, planets, users;
 
 -- Use this script to setup your Planetarium database
 create table users(
@@ -22,4 +20,4 @@ create table moons(
 	myPlanetId int references planets(id) on delete cascade
 );
 
--- insert into	users values (default, 'test', 'test');
+insert into	users values (default, 'test', 'test');
