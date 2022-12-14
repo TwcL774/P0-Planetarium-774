@@ -1,5 +1,11 @@
 package com.revature.controller;
 
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.exceptions.NotLoggedInException;
 
 import io.javalin.Javalin;
@@ -9,11 +15,16 @@ public class RequestMapping {
 	private static AuthenticateController authController = new AuthenticateController();
 	private static PlanetController planetController = new PlanetController();
 	private static MoonController moonController = new MoonController();
+	private static Logger responseTime = LoggerFactory.getLogger(RequestMapping.class);
 	
 	public static void setupEndpoints(Javalin app) {
 		
 		// Authenticate user and create a session for the user, sending username/password in the body as JSON
-		app.post("/login", ctx -> authController.authenticate(ctx));
+		app.post("/login", ctx -> {
+			LocalTime startTime = LocalTime.now();
+			authController.authenticate(ctx);
+			responseTime.info("Response Time: " + ChronoUnit.MILLIS.between(startTime, authController.endTime));
+		});
 
 		// Register a new user, sending username/password in the body as JSON
 		app.post("/register", ctx -> authController.register(ctx));
@@ -55,7 +66,7 @@ public class RequestMapping {
 		app.get("api/moon/{name}", ctx -> moonController.getMoonByName(ctx));
 		
 		// Get a moon with matching ID
-		app.get("api/moon/id/{id}", ctx -> moonController.getMoonById(ctx));
+		app.get("api/moon/{id}", ctx -> moonController.getMoonById(ctx));
 		
 
 		// Create a new planet, sending the data in the body as JSON

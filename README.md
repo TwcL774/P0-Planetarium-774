@@ -17,15 +17,15 @@ The Planetarium is a web service that allows users to add planets and associated
 ## Development Requirements
 Each class in the list below has one or more unimplemented methods you will need to complete to achieve MVP requirements:
 - Utilities Package
-    - ConnectionUtil
+    - [x] ConnectionUtil
 - Repository Package
-    - UserDao
-    - PlanetDao
-    - MoonDao
+    - [x] UserDao
+    - [x] PlanetDao
+    - [x] MoonDao
 - Services
-    - UserService
-    - PlanetService
-    - MoonService
+    - [x] UserService
+    - [x] PlanetService
+    - [x] MoonService
 
 **NOTE: you can create a main method in each class to test the methods as you work on them, then delete it when you're done with the class**
 
