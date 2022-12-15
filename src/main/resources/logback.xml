@@ -20,9 +20,9 @@
             <!-- filename pattern for the log files -->
             <fileNamePattern>activityLogs.%d{yyyy-MM-dd}.log</fileNamePattern>
             <!-- log files age -->
-            <maxHistory>1</maxHistory>
+            <maxHistory>7</maxHistory>
             <!-- log files maximum size -->
-            <totalSizeCap>3GB</totalSizeCap>
+            <totalSizeCap>6GB</totalSizeCap>
         
         </rollingPolicy>
 

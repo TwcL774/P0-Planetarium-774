@@ -15,6 +15,7 @@ public class RequestMapping {
 	private static AuthenticateController authController = new AuthenticateController();
 	private static PlanetController planetController = new PlanetController();
 	private static MoonController moonController = new MoonController();
+	private static SLIController sliController = new SLIController();
 	private static Logger responseTime = LoggerFactory.getLogger(RequestMapping.class);
 	
 	public static void setupEndpoints(Javalin app) {
@@ -45,8 +46,7 @@ public class RequestMapping {
 		app.exception(NotLoggedInException.class, (e,ctx) -> {
 			ctx.json(e.getMessage()).status(401);
 		});
-		
-		
+				
 		// Get all Planets
 		app.get("api/planets", ctx -> planetController.getAllPlanets(ctx));		
 		// Get a planet with matching name
@@ -72,5 +72,8 @@ public class RequestMapping {
 		app.delete("api/planet/{id}", ctx -> planetController.deletePlanet(ctx));		
 		// Delete a moon
 		app.delete("api/moon/{id}", ctx -> moonController.deleteMoon(ctx));
+
+		// Get SLI metrics
+		app.get("api/check", ctx -> sliController.getSLI(ctx));
 	}
 }

@@ -35,7 +35,7 @@ This is the core of the project: the application as it stands currently has no l
 ### Service Level Objects
 <!-- (x * 100) / total = percentage-->
 <!-- (# of Success Requets / 100) / Total Requests = must be 99.8% -->
-<!-- (Total Requests * 0.2) / 100 <= # Failed Requests -->
+<!-- (Total Requests * 0.2) / 100 => # Failed Requests -->
 <!-- total response time / total response = avg must be <= 200 milliseconds -->
 - 99.8% of requests should complete successfully within 200 milliseconds
 
