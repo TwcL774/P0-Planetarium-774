@@ -11,9 +11,7 @@ import com.revature.models.SLI;
 public class SLIDao {
 
     public void generateSLI() throws InterruptedException, IOException{
-        String bashScriptPath = "C:\\Users\\TwcL774\\Desktop\\P0-Planetarium-774\\logs/SLI.sh";
-        String bashInterpreterPath = "C:\\Program Files\\Git\\bin\\bash.exe";
-        ProcessBuilder processBuilder = new ProcessBuilder(bashInterpreterPath, bashScriptPath);
+        ProcessBuilder processBuilder = new ProcessBuilder("bash", "logs/SLI.sh");
         Process process = processBuilder.start();
         process.waitFor();
     }
@@ -38,9 +36,9 @@ public class SLIDao {
         }
     }
 
-    // public static void main(String[] args) {
-    //     SLIDao sliDao = new SLIDao();
-    //     SLI sli = sliDao.getSLI();
-    //     System.out.println(sli.getTotalResponses() + "\n" + sli.getSuccessResponses() + "\n" + sli.getErrorResponses() + "\n" + sli.getSuccessRate() + "\n" + sli.getAvgTiming() + "\n" + sli.getMetSuccessRateSLI() + "\n" + sli.getMetResponseTimeSLI());
-    // }
+    public static void main(String[] args) {
+        SLIDao sliDao = new SLIDao();
+        SLI sli = sliDao.getSLI();
+        System.out.println(sli.getTotalResponses() + "\n" + sli.getSuccessResponses() + "\n" + sli.getErrorResponses() + "\n" + sli.getSuccessRate() + "\n" + sli.getAvgTiming() + "\n" + sli.getMetSuccessRateSLI() + "\n" + sli.getMetResponseTimeSLI());
+    }
 }
