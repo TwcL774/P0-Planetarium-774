@@ -23,17 +23,17 @@ public class SLIDao {
             generateSLI();
             BufferedReader bufferedReader = new BufferedReader(new FileReader("logs/sliSummary"));
             List<String> fromFile = new ArrayList<>();
-            String line = bufferedReader.readLine();            
+            String lineRead = bufferedReader.readLine();
 
-            while (line != null){
-                fromFile.add(line);
-                line = bufferedReader.readLine();
+            while (lineRead != null){
+                fromFile.add(lineRead);
+                lineRead = bufferedReader.readLine();
             }
             
             bufferedReader.close();
             return new SLI(fromFile.get(0), fromFile.get(1), fromFile.get(2), fromFile.get(3), fromFile.get(4), fromFile.get(6), fromFile.get(7));
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             return null;
         }
     }
