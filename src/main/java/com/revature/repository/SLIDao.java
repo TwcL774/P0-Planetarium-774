@@ -38,12 +38,12 @@ public class SLIDao {
         }
     }
 
-    public static void main(String[] args) {
-    SLIDao sliDao = new SLIDao();
-    SLI sli = sliDao.getSLI();
-    System.out.println(sli.getTotalResponses() + "\n" + sli.getSuccessResponses()
-                        + "\n" + sli.getErrorResponses() + "\n" + sli.getSuccessRate()
-                        + "\n" + sli.getAvgTiming() + "\n" + sli.getMetSuccessRateSLI()
-                        + "\n" + sli.getMetResponseTimeSLI());
-    }
+    // public static void main(String[] args) {
+    // SLIDao sliDao = new SLIDao();
+    // SLI sli = sliDao.getSLI();
+    // System.out.println(sli.getTotalResponses() + "\n" + sli.getSuccessResponses()
+    //                     + "\n" + sli.getErrorResponses() + "\n" + sli.getSuccessRate()
+    //                     + "\n" + sli.getAvgTiming() + "\n" + sli.getMetSuccessRateSLI()
+    //                     + "\n" + sli.getMetResponseTimeSLI());
+    // }
 }

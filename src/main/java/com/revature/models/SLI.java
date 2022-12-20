@@ -15,5 +15,5 @@ public class SLI {
         private String successRate;
         private String avgTiming;
         private String metSuccessRateSLI;
-        private String metResponseTimeSLI;        
+        private String metResponseTimeSLI;
 }
