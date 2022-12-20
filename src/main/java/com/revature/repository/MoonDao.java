@@ -45,7 +45,7 @@ public class MoonDao {
 							rs.getInt("myplanetid"));
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return null;
+			return new Moon();
 		}
 	}
 
@@ -64,7 +64,7 @@ public class MoonDao {
 								rs.getInt("myplanetid"));
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return null;
+			return new Moon();
 		}
 	}
 
@@ -86,7 +86,7 @@ public class MoonDao {
 							rs.getInt("myplanetid"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return null;
+            return new Moon();
         }
 	}
 

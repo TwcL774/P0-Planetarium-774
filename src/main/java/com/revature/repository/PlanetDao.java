@@ -45,7 +45,7 @@ public class PlanetDao {
 								rs.getInt("ownerid"));
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return null;
+			return new Planet();
 		}
 	}
 
@@ -64,7 +64,7 @@ public class PlanetDao {
 								rs.getInt("ownerid"));
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return null;
+			return new Planet();
 		}
 	}
 
@@ -86,7 +86,7 @@ public class PlanetDao {
 							rs.getInt("ownerid"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return null;
+            return new Planet();
         }
 	}
 

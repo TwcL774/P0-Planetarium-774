@@ -53,7 +53,7 @@ public class MoonService {
 	/**
 	 * Interacts with the dao that adds Moon object.
 	 * @param username from sessionAttribute username
-	 * @param m from ctx.bosy POST:/api/moon
+	 * @param m from ctx.body POST:/api/moon
 	 * @return Moon object
 	 */
 	public Moon createMoon(String username, Moon m) {
