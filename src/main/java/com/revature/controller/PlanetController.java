@@ -67,7 +67,7 @@ public class PlanetController {
 		if (result != 0) {
 			ctx.json("Planet successfully deleted").status(202);
 		} else {
-			ctx.status(404);
+			ctx.status(410);
 		}
 	}
 }
