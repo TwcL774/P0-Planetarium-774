@@ -110,23 +110,4 @@ public class PlanetDao {
 			return 0;
 		}
 	}
-
-	// to test method implementations
-	// public static void main(String[] args) throws SQLException {
-	// PlanetDao pDao = new PlanetDao();
-	// System.out.println(pDao.createPlanet("test", new Planet(0, "Planet 1", 1)) +
-	// " Planet 1 is added to the DB");
-	// System.out.println(pDao.createPlanet("test", new Planet(0, "Planet 2", 1)) +
-	// " Planet 2 is added to the DB");
-	// System.out.println(pDao.createPlanet("test", new Planet(0, "Planet 2", 1)) +
-	// " Planet 2 is added to the DB");
-	// System.out.println(pDao.createPlanet("test", new Planet(0, "Planet 3", 1)) +
-	// " Planet 3 is added to the DB");
-	// System.out.println(pDao.getPlanetByName("test", "Planet 1") + " Planet:
-	// Planet 1 is retrieved by name");
-	// System.out.println(pDao.getPlanetById("test", 2) + " Planet: Planet 2 is
-	// retrieved by id");
-	// System.out.println(pDao.getAllPlanets() + " All planets were retrieved");
-	// pDao.deletePlanetById(4);
-	// }
 }

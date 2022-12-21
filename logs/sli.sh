@@ -29,7 +29,7 @@ grep "^Response.*execution took" $pwd/logs/activityLogs.log | cut -f 2 -d ',' | 
 # calculate the average by line+=line divided by total number of lines
 avgTiming=$(awk '{sum+=$1} END {print sum/NR}' $pwd/logs/responseTimings)
 
-# format the Average Timing to 2 decimal point
+# format the Average Timing to 2 decimal points
 avgTiming=$(printf "%.2f" $avgTiming)
 
 # writes the values of the variable into a file named sliSummarry

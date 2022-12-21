@@ -53,16 +53,4 @@ public class UserDao {
             return null;
         }
     }
-
-    // to test method implementations
-    // public static void main(String[] args) {
-    // UserDao uDao = new UserDao();
-    // UsernamePasswordAuthentication newUser = new
-    // UsernamePasswordAuthentication();
-    // newUser.setUsername("admin");
-    // newUser.setPassword("adminPass");
-    // System.out.println(uDao.createUser(newUser) + " created");
-    // System.out.println("User ID: " + uDao.getUserByUsername("admin").getId() + "
-    // of User: admin is retrieved");
-    // }
 }

@@ -135,23 +135,4 @@ public class MoonDao {
 			return moon;
 		}
 	}
-
-	// to test method implementations
-	// public static void main(String[] args) throws SQLException {
-	// MoonDao mDao = new MoonDao();
-	// System.out.println(mDao.createMoon("test", new Moon(0, "Moon 1", 1)) + " Moon
-	// 1 is added to the DB");
-	// System.out.println(mDao.createMoon("test", new Moon(0, "Moon 2", 2)) + " Moon
-	// 2 is added to the DB");
-	// System.out.println(mDao.createMoon("test", new Moon(0, "Moon 3", 1)) + " Moon
-	// 3 is added to the DB");
-	// System.out.println(mDao.getMoonByName("test", "Moon 1") + " Moon: Moon 1 is
-	// retrieved by name");
-	// System.out.println(mDao.getMoonById("test", 2) + " Moon: Moon 2 is retrieved
-	// by id");
-	// System.out.println(mDao.getAllMoons() + " All moons were retrieved");
-	// System.out.println(mDao.getMoonsFromPlanet(1) + " All moons from Planet 1
-	// retrieved");
-	// mDao.deleteMoonById(3);
-	// }
 }

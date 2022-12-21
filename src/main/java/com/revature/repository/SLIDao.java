@@ -10,12 +10,6 @@ import com.revature.models.SLI;
 
 public class SLIDao {
 
-    public void generateSLI() throws InterruptedException, IOException {
-        ProcessBuilder processBuilder = new ProcessBuilder("bash", "logs/SLI.sh");
-        Process process = processBuilder.start();
-        process.waitFor();
-    }
-
     public SLI getSLI() {
         try {
             generateSLI();
@@ -39,12 +33,9 @@ public class SLIDao {
         }
     }
 
-    // public static void main(String[] args) {
-    // SLIDao sliDao = new SLIDao();
-    // SLI sli = sliDao.getSLI();
-    // System.out.println(sli.getTotalResponses() + "\n" + sli.getSuccessResponses()
-    // + "\n" + sli.getErrorResponses() + "\n" + sli.getSuccessRate()
-    // + "\n" + sli.getAvgTiming() + "\n" + sli.getMetSuccessRateSLI()
-    // + "\n" + sli.getMetResponseTimeSLI());
-    // }
+    public void generateSLI() throws InterruptedException, IOException {
+        ProcessBuilder processBuilder = new ProcessBuilder("bash", "logs/SLI.sh");
+        Process process = processBuilder.start();
+        process.waitFor();
+    }
 }
