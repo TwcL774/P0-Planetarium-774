@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SLI {
-        
+
         private String totalResponses;
         private String successResponses;
         private String errorResponses;

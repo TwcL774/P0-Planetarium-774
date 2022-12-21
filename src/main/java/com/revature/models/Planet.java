@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Planet {
-	
+
 	private int id;
 	private String name;
 	private int ownerId;

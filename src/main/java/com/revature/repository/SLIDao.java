@@ -29,7 +29,8 @@ public class SLIDao {
             }
 
             bufferedReader.close();
-            return new SLI(fromFile.get(0), fromFile.get(1),
+            return new SLI(
+                    fromFile.get(0), fromFile.get(1),
                     fromFile.get(2), fromFile.get(3),
                     fromFile.get(4), fromFile.get(6), fromFile.get(7));
         } catch (IOException | InterruptedException e) {

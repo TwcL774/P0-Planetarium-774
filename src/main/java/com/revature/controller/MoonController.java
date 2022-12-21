@@ -56,7 +56,8 @@ public class MoonController {
 			ctx.json(outGoingMoon).status(201);
 		} else {
 			ctx.status(400);
-		};
+		}
+		;
 	}
 
 	public void deleteMoon(Context ctx) {

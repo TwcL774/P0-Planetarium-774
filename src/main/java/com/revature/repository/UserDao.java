@@ -22,7 +22,8 @@ public class UserDao {
             ResultSet rs = ps.executeQuery();
 
             rs.next();
-            return new User(rs.getInt("id"),
+            return new User(
+                    rs.getInt("id"),
                     rs.getString("username"),
                     rs.getString("password"));
         } catch (SQLException e) {
@@ -43,7 +44,8 @@ public class UserDao {
             ResultSet rs = ps.getGeneratedKeys();
 
             rs.next();
-            return new User(rs.getInt("id"),
+            return new User(
+                    rs.getInt("id"),
                     rs.getString("username"),
                     rs.getString("password"));
         } catch (SQLException e) {

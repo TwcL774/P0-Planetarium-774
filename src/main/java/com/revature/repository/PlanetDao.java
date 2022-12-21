@@ -22,7 +22,8 @@ public class PlanetDao {
 			ResultSet rs = ps.executeQuery(sql);
 
 			while (rs.next()) {
-				planets.add(new Planet(rs.getInt("id"),
+				planets.add(new Planet(
+						rs.getInt("id"),
 						rs.getString("name"),
 						rs.getInt("ownerid")));
 			}
@@ -44,7 +45,8 @@ public class PlanetDao {
 			ResultSet rs = ps.executeQuery();
 
 			rs.next();
-			return new Planet(rs.getInt("id"),
+			return new Planet(
+					rs.getInt("id"),
 					rs.getString("name"),
 					rs.getInt("ownerid"));
 		} catch (SQLException e) {
@@ -63,7 +65,8 @@ public class PlanetDao {
 			ResultSet rs = ps.executeQuery();
 
 			rs.next();
-			return new Planet(rs.getInt("id"),
+			return new Planet(
+					rs.getInt("id"),
 					rs.getString("name"),
 					rs.getInt("ownerid"));
 		} catch (SQLException e) {
@@ -85,7 +88,8 @@ public class PlanetDao {
 
 			rs.next();
 
-			return new Planet(rs.getInt("id"),
+			return new Planet(
+					rs.getInt("id"),
 					rs.getString("name"),
 					rs.getInt("ownerid"));
 		} catch (SQLException e) {

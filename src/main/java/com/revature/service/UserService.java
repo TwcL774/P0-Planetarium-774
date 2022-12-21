@@ -13,12 +13,13 @@ public class UserService {
 
 	private UserDao dao;
 
-	public UserService(){
+	public UserService() {
 		this.dao = new UserDao();
 	}
-	
+
 	/**
 	 * Interacts with the dao that retrieves user information.
+	 * 
 	 * @param username from ctx.body POST:/login
 	 * @return User object
 	 */
@@ -28,6 +29,7 @@ public class UserService {
 
 	/**
 	 * Interacts with the dao that adds user information.
+	 * 
 	 * @param registerRequest from ctx.body POST:/register
 	 * @return User object
 	 * @throws SQLException

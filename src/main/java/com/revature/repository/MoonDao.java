@@ -22,7 +22,8 @@ public class MoonDao {
 			ResultSet rs = s.executeQuery(sql);
 
 			while (rs.next()) {
-				moons.add(new Moon(rs.getInt("id"),
+				moons.add(new Moon(
+						rs.getInt("id"),
 						rs.getString("name"),
 						rs.getInt("myplanetid")));
 			}
@@ -44,7 +45,8 @@ public class MoonDao {
 			ResultSet rs = ps.executeQuery();
 
 			rs.next();
-			return new Moon(rs.getInt("id"),
+			return new Moon(
+					rs.getInt("id"),
 					rs.getString("name"),
 					rs.getInt("myplanetid"));
 		} catch (SQLException e) {
@@ -63,7 +65,8 @@ public class MoonDao {
 			ResultSet rs = ps.executeQuery();
 
 			rs.next();
-			return new Moon(rs.getInt("id"),
+			return new Moon(
+					rs.getInt("id"),
 					rs.getString("name"),
 					rs.getInt("myplanetid"));
 		} catch (SQLException e) {
@@ -85,7 +88,8 @@ public class MoonDao {
 
 			rs.next();
 
-			return new Moon(rs.getInt("id"),
+			return new Moon(
+					rs.getInt("id"),
 					rs.getString("name"),
 					rs.getInt("myplanetid"));
 		} catch (SQLException e) {
@@ -119,7 +123,8 @@ public class MoonDao {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				moon.add(new Moon(rs.getInt("id"),
+				moon.add(new Moon(
+						rs.getInt("id"),
 						rs.getString("name"),
 						rs.getInt("myplanetid")));
 			}
