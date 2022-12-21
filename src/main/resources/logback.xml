@@ -37,7 +37,7 @@
     <root level="INFO">
         <!-- reference for the type of logging -->
         <appender-ref ref="ROLLING"/>
-        <appender-ref ref="STDOUT"/>
+        <!-- <appender-ref ref="STDOUT"/> -->
     </root>
 
 </configuration>

@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.sql.SQLException;
+
 import com.revature.models.User;
 import com.revature.models.UsernamePasswordAuthentication;
 import com.revature.repository.UserDao;
@@ -28,6 +30,7 @@ public class UserService {
 	 * Interacts with the dao that adds user information.
 	 * @param registerRequest from ctx.body POST:/register
 	 * @return User object
+	 * @throws SQLException
 	 */
 	public User register(UsernamePasswordAuthentication registerRequest) {
 		return this.dao.createUser(registerRequest);

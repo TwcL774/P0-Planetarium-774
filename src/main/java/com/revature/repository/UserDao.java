@@ -11,9 +11,9 @@ import com.revature.models.UsernamePasswordAuthentication;
 import com.revature.utilities.ConnectionUtil;
 
 public class UserDao {
-    
+
     public User getUserByUsername(String username) {
-        try (Connection conn =  ConnectionUtil.createConnection()) {
+        try (Connection conn = ConnectionUtil.createConnection()) {
             String sql = "select * from users where username = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -22,12 +22,11 @@ public class UserDao {
             ResultSet rs = ps.executeQuery();
 
             rs.next();
-
             return new User(rs.getInt("id"),
-                            rs.getString("username"),
-                            rs.getString("password"));
+                    rs.getString("username"),
+                    rs.getString("password"));
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("getUserByUserName: " + e.getMessage());
             return new User();
         }
     }
@@ -36,31 +35,32 @@ public class UserDao {
         try (Connection conn = ConnectionUtil.createConnection()) {
             String sql = "insert into users values (default, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            
+
             ps.setString(1, registerRequest.getUsername());
             ps.setString(2, registerRequest.getPassword());
             ps.execute();
-            
+
             ResultSet rs = ps.getGeneratedKeys();
 
             rs.next();
-
             return new User(rs.getInt("id"),
-                            rs.getString("username"),
-                            rs.getString("password"));            
+                    rs.getString("username"),
+                    rs.getString("password"));
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return new User();
+            System.out.println("createUser: " + e.getMessage());
+            return null;
         }
     }
 
     // to test method implementations
     // public static void main(String[] args) {
-    //     UserDao uDao = new UserDao();
-    //     UsernamePasswordAuthentication newUser = new UsernamePasswordAuthentication();
-    //     newUser.setUsername("admin");
-    //     newUser.setPassword("adminPass");
-    //     System.out.println(uDao.createUser(newUser) + " created");
-    //     System.out.println("User ID: " + uDao.getUserByUsername("admin").getId() + " of User: admin is retrieved");
+    // UserDao uDao = new UserDao();
+    // UsernamePasswordAuthentication newUser = new
+    // UsernamePasswordAuthentication();
+    // newUser.setUsername("admin");
+    // newUser.setPassword("adminPass");
+    // System.out.println(uDao.createUser(newUser) + " created");
+    // System.out.println("User ID: " + uDao.getUserByUsername("admin").getId() + "
+    // of User: admin is retrieved");
     // }
 }

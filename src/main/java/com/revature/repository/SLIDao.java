@@ -30,8 +30,8 @@ public class SLIDao {
 
             bufferedReader.close();
             return new SLI(fromFile.get(0), fromFile.get(1),
-                            fromFile.get(2), fromFile.get(3),
-                            fromFile.get(4), fromFile.get(6), fromFile.get(7));
+                    fromFile.get(2), fromFile.get(3),
+                    fromFile.get(4), fromFile.get(6), fromFile.get(7));
         } catch (IOException | InterruptedException e) {
             System.out.println(e.getMessage());
             return new SLI();
@@ -42,8 +42,8 @@ public class SLIDao {
     // SLIDao sliDao = new SLIDao();
     // SLI sli = sliDao.getSLI();
     // System.out.println(sli.getTotalResponses() + "\n" + sli.getSuccessResponses()
-    //                     + "\n" + sli.getErrorResponses() + "\n" + sli.getSuccessRate()
-    //                     + "\n" + sli.getAvgTiming() + "\n" + sli.getMetSuccessRateSLI()
-    //                     + "\n" + sli.getMetResponseTimeSLI());
+    // + "\n" + sli.getErrorResponses() + "\n" + sli.getSuccessRate()
+    // + "\n" + sli.getAvgTiming() + "\n" + sli.getMetSuccessRateSLI()
+    // + "\n" + sli.getMetResponseTimeSLI());
     // }
 }
